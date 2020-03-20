@@ -14,7 +14,7 @@
     
         ,"post1": {
             "title": "COVID-19 Confirmed Cases vs. Deaths",
-            "content": "Cummulative cases per deaths . Italy Iran Spain France US United Kingdom South Korea Netherlands Germany Switzerland . Text(0, 0.5, &#39;Cummulative cases per deaths&#39;) . Actual infections vs detected infections . Following the post from Tomas Pueyo [1], we estimate the time of infection for every death to be on average 20 days before the time of death. A fatality rate of 1% is assumed to estimate the number of infections that are responsible for the observed deaths. . [1] https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca .",
+            "content": "Cummulative cases per deaths . Text(0, 0.5, &#39;Cummulative cases per deaths&#39;) . Actual infections vs detected infections . Following the post from Tomas Pueyo [1], we estimate the time of infection for every death to be on average 20 days before the time of death. A fatality rate of 1% is assumed to estimate the number of infections that are responsible for the observed deaths. . [1] https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca .",
             "url": "https://caglorithm.github.io/covid19-analysis/covid-cases-to-deaths/",
             "relUrl": "/covid-cases-to-deaths/",
             "date": " • Mar 20, 2020"
