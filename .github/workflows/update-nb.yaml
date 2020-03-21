@@ -22,23 +22,23 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Python
-      if: github.event_name != 'push'
+      #if: github.event_name != 'push'
       uses: actions/setup-python@v1
       with:
         python-version: 3.6
 
     - name: Setup Node
-      if: github.event_name != 'push'
+      #if: github.event_name != 'push'
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
       
     - name: install plotly js dependencies
-      if: github.event_name != 'push'
+      #if: github.event_name != 'push'
       run: npm install -g electron@6.1.4 orca
 
     - name: run notebooks
-      if: github.event_name != 'push'
+      #if: github.event_name != 'push'
       run: |
         pip install matplotlib pandas seaborn papermill ipykernel jupyter folium plotly plotnine psutil pymc3 arviz xlrd altair jinja2
         python3 -m ipykernel install --user --name python3
