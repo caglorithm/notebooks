@@ -45,9 +45,9 @@ jobs:
         sudo chmod -R 777 .
         cd _notebooks
         ls *.ipynb
-		papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
+        papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
 
-    - name: run notebooks - modeling
+    - name: run notebooks - scheduled
       if: github.event_name == 'schedule'
       run: |
         sudo chmod -R 777 .
