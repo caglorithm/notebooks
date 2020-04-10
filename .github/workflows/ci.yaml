@@ -27,7 +27,7 @@ jobs:
         git add _posts/2020-04-10-neurolib-example.md
         git commit -m 'push markdown files'
         git push -f
-		
+
     - name: setup directories for Jekyll build
       run: |
         rm -rf _site
