@@ -21,8 +21,8 @@ jobs:
       uses: ./_action_files
 
     - name: echo markdown files
-	  run: |
-	    echo _posts/2020-04-10-neurolib-example.md
+      run: |
+        echo _posts/2020-04-10-neurolib-example.md
     # - name: push markdown files
     #   run: |
     #     git config --global user.email "caglorithm@gmail.com"
