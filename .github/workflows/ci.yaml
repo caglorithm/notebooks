@@ -20,6 +20,14 @@ jobs:
     - name: convert notebooks and word docs to posts
       uses: ./_action_files
 
+    - name: push markdown files
+      run: |
+        git config --global user.email "caglorithm@gmail.com"
+        git config --global user.name "caglorithm"
+        git add _posts/2020-04-10-neurolib-example.md
+        git commit -m 'push markdown files'
+        git push -f
+		
     - name: setup directories for Jekyll build
       run: |
         rm -rf _site
