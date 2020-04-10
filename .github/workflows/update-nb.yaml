@@ -2,10 +2,12 @@ name: Update Notebooks
 on:
   schedule:
     - cron:  '0 1 * * *'
-  push:
-    branches:
-      - master 
-  pull_request: 
+  #push:
+  #  branches:
+  #    - master 
+  #pull_request: 
+  issues:
+    types: [opened]
 
 jobs:
   update-notebooks:
@@ -27,11 +29,11 @@ jobs:
       with:
         python-version: 3.6
 
-    - name: Setup Node
-      if: github.event_name != 'push'
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
+    # - name: Setup Node
+    #   if: github.event_name != 'push'
+    #   uses: actions/setup-node@v1
+    #   with:
+    #     node-version: '10.x'
       
     # - name: install plotly js dependencies
     #   #if: github.event_name != 'push'
@@ -48,15 +50,15 @@ jobs:
         papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
         papermill --kernel python3 2020-03-21-covid19-fatality-rates.ipynb 2020-03-21-covid19-fatality-rates.ipynb
 
-    # - name: save files
-    #   #if: github.event_name != 'push'
-    #   run: |
-    #     git config --global user.email "sevensirk@gmail.com"
-    #     git config --global user.name "caglorithm"
-    #     git add _notebooks/
-    #     git add images/
-    #     git commit -m 'update notebooks'
-    #     git push -f
+    - name: push files
+      if: github.event_name != 'push'
+      run: |
+        git config --global user.email "caglorithm@gmail.com"
+        git config --global user.name "caglorithm"
+        git add _notebooks/
+        git add images/
+        git commit -m 'update notebooks'
+        git push -f
 
     - name: run notebooks - scheduled
       if: github.event_name == 'schedule'
@@ -66,10 +68,10 @@ jobs:
         papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
         papermill --kernel python3 2020-03-21-covid19-fatality-rates.ipynb 2020-03-21-covid19-fatality-rates.ipynb
 
-    - name: save files - scheduled
+    - name: push updates - scheduled
       if: github.event_name == 'schedule'
       run: |
-        git config --global user.email "sevensirk@gmail.com"
+        git config --global user.email "caglorithm@gmail.com"
         git config --global user.name "caglorithm"
         git add _notebooks/
         git add images/
