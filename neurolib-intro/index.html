@@ -113,7 +113,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      15 min read
+      16 min read
     
 </span></p>
 
@@ -182,9 +182,16 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In its essence, <code>neurolib</code> is a computational framework for simulating coupled neural mass models. Neural mass models are mathematical models that help to simulate and understand the behavior of large number of (coupled) neurons. Typically, these models make use of the statistical insight that the collective, macroscopic behavior of a large network of randomly connected neurons can be described without having to know the exact dynamics of every individual neuron at every time step. This is much like a statistical physicist would treat a gas where for example the temperature of the gas is an expression of the mean velocity of the gas particles, not the individual velocity of each particle.</p>
-<p>Now that we have an idea about what neural masses are, what are they useful for and how is this related to <code>neurolib</code>?</p>
-<p>One of the applications of neural mass models in computational neuroscience is in whole-brain modeling, where a coarse-grained simulation of the activity of a large network of brain areas is achieved by combining simulations of neural masses with structural connectivity scans (often referred to as the connectome) of the human brain which captures large axonal connections that connect distant brain areas.</p>
+<p>In its essence, <code>neurolib</code> is a computational framework for simulating coupled neural mass models. It helps you to easily load brain scan data to construct networks of neural masses, which can be used to simulate whole-brain dynamics. Finally, <code>neurolib</code> can simulate BOLD activity from the underlying neural activity to be able to compare simulations to functional brain scan data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-computational-neuroscience-primer">A computational neuroscience primer<a class="anchor-link" href="#A-computational-neuroscience-primer"> </a></h2><p>Let's start at the beginning. Computational neuroscience is the scientific field in which mathematical tools and theories are used to investigate brain function. One of these tools is network science and the study of <a href="https://en.wikipedia.org/wiki/Dynamical_systems_theory">dynamical systems theory</a>. Across all relevant scales for studying brain function, scientists have created mathematical models for simulating neuronal systems ranging from highly complex single neurons models which simulate individual chemical processes in the cell up to theories of large networks of neurons that disregard most of the complicated details in order to gain insights into the large-scale behavior of neural systems.</p>
+<p>Neural mass models are such mathematical models that help to simulate and understand the behavior of a large number of coupled neurons. Typically, these models make use of the statistical insight that the collective, macroscopic behavior of a large network of randomly connected neurons can be described without having to know the exact dynamics of every individual neuron at every time step. This is much like a statistical physicist would treat a gas where for example the temperature of the gas is an expression of the mean velocity of the gas particles, not the individual velocity of each particle.</p>
+<p>Now that we have an idea about what neural masses are, what are they useful for and how is this related to <code>neurolib</code>? One of the applications of neural mass models in computational neuroscience is in whole-brain modeling, where a coarse-grained simulation of the activity of a large network of brain areas is achieved by combining simulations of neural masses with structural connectivity scans (often referred to as the connectome) of the human brain which captures large axonal connections that connect distant brain areas.</p>
 
 </div>
 </div>
@@ -208,8 +215,15 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>On the left side, you can see structural brain scan data with the axonal fiber tractography (<strong>Connectome</strong>) and a parcellation scheme (<strong>AAL2 atlas</strong>) that divides the brain into distinct volumes. Below, you can see the <strong>Structural connectivity</strong> matrix, which captures the coupling strength between each area, and the <strong>Delay matrix</strong>, which captures the signal transmission delay between brain regions, derived from the length of the fiber tractography. On the right side, you can see a schematic of the <code>aln</code> neural mass model, representing a single <strong>brain area</strong> with excitatory neurons (orange population, E) and inhibitory neurons (blue population, I). Combining the structural brain data with the neural model is how we construct a <strong>whole-brain model</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="The-neural-mass-model">The neural mass model<a class="anchor-link" href="#The-neural-mass-model"> </a></h2><p>In this notebook we will learn about the basics of <code>neurolib</code>. We will create a two-population mean-field model of exponential integrate-and-fire neurons called the <code>aln</code> model. We will learn how to create a <code>Model</code>, set some parameters and run a simulation. We will also see how we can easily access the output of each simulation.</p>
-<h3 id="aln---the-adaptive-linear-nonlinear-cascade-model">aln - the adaptive linear-nonlinear cascade model<a class="anchor-link" href="#aln---the-adaptive-linear-nonlinear-cascade-model"> </a></h3><p>The adaptive linear-nonlinear (<code>aln</code>) cascade model is a low-dimensional population model of spiking neural networks. Mathematically, it is a dynamical system of non-linear ODEs. The dynamical variables of the system simulated in the <code>aln</code> model describe the average firing rate and other <strong>macroscopic variables</strong> of a randomly connected, delay-coupled network of excitatory and inhibitory <strong>adaptive exponential integrate-and-fire neurons (AdEx)</strong> with non-linear synaptic currents.</p>
+<h3 id="aln---the-adaptive-linear-nonlinear-cascade-model">aln - the adaptive linear-nonlinear cascade model<a class="anchor-link" href="#aln---the-adaptive-linear-nonlinear-cascade-model"> </a></h3><p>The adaptive linear-nonlinear (<code>aln</code>) cascade model is a low-dimensional population model of spiking neural networks. Mathematically, it is a dynamical system of non-linear ordinary differential equations (ODEs). The dynamical variables of the system simulated in the <code>aln</code> model describe the average firing rate and other <strong>macroscopic variables</strong> of a randomly connected, delay-coupled network of excitatory and inhibitory <strong>adaptive exponential integrate-and-fire neurons (AdEx)</strong> with non-linear synaptic currents.</p>
 <p>Ultimately, the model is a result of various steps of model reduction starting from the Fokker-Planck equation of the AdEx neuron subject to white noise input at many steps of input means $\mu$ and variances $\sigma$. The resulting mean firing rates and mean membrane potentials are then stored in a lookup table and serve as the nonlinear firing rate transfer function, $r = \Phi(\mu, \sigma)$.</p>
 
 </div>
@@ -291,7 +305,7 @@ key of the Model object, i.e. <code>aln['rates_exc']</code>.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's have a look what the outputs of of the <code>aln</code> model are called:</p>
+<p>Let's have a look what the outputs of the <code>aln</code> model are called:</p>
 
 </div>
 </div>
@@ -331,7 +345,7 @@ key of the Model object, i.e. <code>aln['rates_exc']</code>.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see here, the model produces several outputs after executing <code>aln.run()</code>. The first entry <code>t</code> is the time array:</p>
+<p>As you can see here, the model produces several outputs after executing <code>aln.run()</code>. The first entry <code>t</code> is an array of the simulation time steps:</p>
 
 </div>
 </div>
