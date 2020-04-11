@@ -113,7 +113,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      14 min read
+      15 min read
     
 </span></p>
 
@@ -183,8 +183,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In its essence, <code>neurolib</code> is a computational framework for simulating coupled neural mass models. Neural mass models are mathematical models that help to simulate and understand the behavior of large number of (coupled) neurons. Typically, these models make use of the statistical insight that the collective, macroscopic behavior of a large network of randomly connected neurons can be described without having to know the exact dynamics of every individual neuron at every time step. This is much like a statistical physicist would treat a gas where for example the temperature of the gas is an expression of the mean velocity of the gas particles, not the individual velocity of each particle.</p>
-<blockquote><p>Now that we know what neural masses are, what are they useful for and how is this related to <code>neurolib</code>?</p>
-</blockquote>
+<p>Now that we have an idea about what neural masses are, what are they useful for and how is this related to <code>neurolib</code>?</p>
 <p>One of the applications of neural mass models in computational neuroscience is in whole-brain modeling, where a coarse-grained simulation of the activity of a large network of brain areas is achieved by combining simulations of neural masses with structural connectivity scans (often referred to as the connectome) of the human brain which captures large axonal connections that connect distant brain areas.</p>
 
 </div>
@@ -209,8 +208,8 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-neural-mass-model">The neural mass model<a class="anchor-link" href="#The-neural-mass-model"> </a></h1><p>In this notebook we will learn about the basics of <code>neurolib</code>. We will create a two-population mean-field model of exponential integrate-and-fire neurons called the <code>aln</code> model. We will learn how to create a <code>Model</code>, set some parameters and run a simulation. We will also see how we can easily access the output of each simulation.</p>
-<h2 id="aln---the-adaptive-linear-nonlinear-cascade-model">aln - the adaptive linear-nonlinear cascade model<a class="anchor-link" href="#aln---the-adaptive-linear-nonlinear-cascade-model"> </a></h2><p>The adaptive linear-nonlinear (<code>aln</code>) cascade model is a low-dimensional population model of spiking neural networks. Mathematically, it is a dynamical system of non-linear ODEs. The dynamical variables of the system simulated in the <code>aln</code> model describe the average firing rate and other <strong>macroscopic variables</strong> of a randomly connected, delay-coupled network of excitatory and inhibitory <strong>adaptive exponential integrate-and-fire neurons (AdEx)</strong> with non-linear synaptic currents.</p>
+<h2 id="The-neural-mass-model">The neural mass model<a class="anchor-link" href="#The-neural-mass-model"> </a></h2><p>In this notebook we will learn about the basics of <code>neurolib</code>. We will create a two-population mean-field model of exponential integrate-and-fire neurons called the <code>aln</code> model. We will learn how to create a <code>Model</code>, set some parameters and run a simulation. We will also see how we can easily access the output of each simulation.</p>
+<h3 id="aln---the-adaptive-linear-nonlinear-cascade-model">aln - the adaptive linear-nonlinear cascade model<a class="anchor-link" href="#aln---the-adaptive-linear-nonlinear-cascade-model"> </a></h3><p>The adaptive linear-nonlinear (<code>aln</code>) cascade model is a low-dimensional population model of spiking neural networks. Mathematically, it is a dynamical system of non-linear ODEs. The dynamical variables of the system simulated in the <code>aln</code> model describe the average firing rate and other <strong>macroscopic variables</strong> of a randomly connected, delay-coupled network of excitatory and inhibitory <strong>adaptive exponential integrate-and-fire neurons (AdEx)</strong> with non-linear synaptic currents.</p>
 <p>Ultimately, the model is a result of various steps of model reduction starting from the Fokker-Planck equation of the AdEx neuron subject to white noise input at many steps of input means $\mu$ and variances $\sigma$. The resulting mean firing rates and mean membrane potentials are then stored in a lookup table and serve as the nonlinear firing rate transfer function, $r = \Phi(\mu, \sigma)$.</p>
 
 </div>
@@ -524,7 +523,7 @@ key of the Model object, i.e. <code>aln['rates_exc']</code>.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Bifurcation-diagram">Bifurcation diagram<a class="anchor-link" href="#Bifurcation-diagram"> </a></h2>
+<h3 id="Exploring-the-state-space-with-bifurcation-diagrams">Exploring the state space with bifurcation diagrams<a class="anchor-link" href="#Exploring-the-state-space-with-bifurcation-diagrams"> </a></h3>
 </div>
 </div>
 </div>
@@ -883,7 +882,7 @@ of the BOLD timeseries in the datasets are given as list with
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Run-model">Run model<a class="anchor-link" href="#Run-model"> </a></h2>
+<h3 id="Run-the-model">Run the model<a class="anchor-link" href="#Run-the-model"> </a></h3>
 </div>
 </div>
 </div>
@@ -925,7 +924,7 @@ particularly useful for very long and many parallel simulations.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Results">Results<a class="anchor-link" href="#Results"> </a></h2><p>The outputs of the model can be accessed using the attribute <code>model.outputs</code></p>
+<h3 id="Analyzing-simulation-results">Analyzing simulation results<a class="anchor-link" href="#Analyzing-simulation-results"> </a></h3><p>The outputs of the model can be accessed using the attribute <code>model.outputs</code></p>
 
 </div>
 </div>
@@ -973,7 +972,8 @@ particularly useful for very long and many parallel simulations.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Plot-simulated-activity">Plot simulated activity<a class="anchor-link" href="#Plot-simulated-activity"> </a></h3>
+<h4 id="Plot-the-simulated-activity">Plot the simulated activity<a class="anchor-link" href="#Plot-the-simulated-activity"> </a></h4><p>Let's have a look at the simulated BOLD activity. We plot the simulated functional connectivity (FC) matrix that captures the correlations of the BOLD signal in each brain area, and the BOLD time series itself.</p>
+
 </div>
 </div>
 </div>
@@ -1011,24 +1011,16 @@ particularly useful for very long and many parallel simulations.</p>
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This looks nice! The simulated FC already looks fairly similar to the empirical FC data from our <code>hcp</code> dataset shown earlier. We have also access to the underlying neuronal activity, that caused this BOLD signal. Since we have used <code>model.run(chunkwise=True)</code> to save memory, <code>neurolib</code> didn't save the full timeseries but only the last chunk.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># the results of the model are also accesible through an xarray DataArray</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
-<span class="n">axs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">aln</span><span class="o">.</span><span class="n">xr</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">aln</span><span class="o">.</span><span class="n">xr</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;rates_exc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">);</span>
-<span class="n">axs</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Neural activity&quot;</span><span class="p">)</span>
-<span class="n">axs</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time [ms]&quot;</span><span class="p">)</span>
-<span class="n">axs</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Firing rate [Hz]&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 <div class="output_wrapper">
 <div class="output">
@@ -1062,7 +1054,7 @@ particularly useful for very long and many parallel simulations.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Correlation-of-simulated-BOLD-to-empirical-data">Correlation of simulated BOLD to empirical data<a class="anchor-link" href="#Correlation-of-simulated-BOLD-to-empirical-data"> </a></h3><p>We can compute the element-wise Pearson correlation of the functional connectivity matrices of the simulated data to the empirical data to estimate how well the model captures the inter-areal BOLD correlations found in empirical resting-state recordings.</p>
+<h3 id="Correlation-of-simulated-FC-to-empirical-FC">Correlation of simulated FC to empirical FC<a class="anchor-link" href="#Correlation-of-simulated-FC-to-empirical-FC"> </a></h3><p>We can compute the element-wise Pearson correlation of the simulated and empirical functional connectivity matrices to estimate how well the model captures the inter-areal resting-state BOLD correlations. As a rule of thumb, a correlation value of <code>0.5</code> is considered good. We use built-in functions <code>func.fc()</code> to calculate the functional connectivity of a n-dimensional timeseries and <code>func.matrix_correlation()</code> to compute the correlation between simulated and empirical data.</p>
 
 </div>
 </div>
