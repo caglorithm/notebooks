@@ -113,7 +113,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      16 min read
+      17 min read
     
 </span></p>
 
@@ -183,6 +183,15 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In its essence, <code>neurolib</code> is a computational framework for simulating coupled neural mass models. It helps you to easily load brain scan data to construct networks of neural masses, which can be used to simulate whole-brain dynamics. Finally, <code>neurolib</code> can simulate BOLD activity from the underlying neural activity to be able to compare simulations to functional brain scan data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have built <code>neurolib</code> because we felt that, although implementing, simulating, and analyzing coupled neural models is often the essential day-to-day work of a computational neuroscience researcher, there are no frameworks that help you achieve that goal or make your life a little bit easier. In this sense, <code>neurolib</code> is primarily a modern research tool written in Python and our main goal is to provide an accessible research framework. However, it is built with people in mind who are new to the field and just want to get going. We have made it as easy as possible to setup a simulation or to implement your own model and run your experiments.</p>
+<p>We are using <code>neurolib</code> in our daily research as much as we're also working on the framework itself. In the future, we expect <code>neurolib</code> to help researchers gain better theoretical insights into their neural models, produce more useful results, and enable them to run and manage large, hierarchical, multi-model simulations.</p>
+<p>You're warmly invited to join our development efforts on our <a href="https://github.com/neurolib-dev/neurolib">GitHub page</a>, report a bug if you find issues, submit a PR with your favorite model that you want to see implemented or just <a href="mailto:caglorithm@gmail.com">get in touch with us</a>.</p>
 
 </div>
 </div>
@@ -648,7 +657,7 @@ key of the Model object, i.e. <code>aln['rates_exc']</code>.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Plotting the <code>inputs</code> to <code>max_outputs</code> and <code>max_inputs</code> gives us the bifurcation diagram of the <code>aln</code> model in the <code>mue_ext_mean</code> parameter space:</p>
+<p>Plotting <code>max_outputs</code> and <code>max_inputs</code> against the the <code>inputs</code> gives us the bifurcation diagram of the <code>aln</code> model in the <code>mue_ext_mean</code>-direction of the parameter space:</p>
 
 </div>
 </div>
