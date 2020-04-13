@@ -113,7 +113,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      18 min read
+      19 min read
     
 </span></p>
 
@@ -206,8 +206,17 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Towards-simulating-brains">Towards simulating brains<a class="anchor-link" href="#Towards-simulating-brains"> </a></h3><p>Now that we have an idea about what neural masses are, what are they useful for and how is this related to <code>neurolib</code>? One of the applications of neural mass models in computational neuroscience is in whole-brain modeling, where a coarse-grained simulation of the activity of a large network of brain areas is achieved by combining simulations of neural masses with structural connectivity scans (often referred to as the <a href="https://en.wikipedia.org/wiki/Connectome">connectome</a>) of the human brain which captures large axonal connections that connect distant brain areas. These models offer an <em>in silico</em> approach (through computational modeling) to investigate the large-scale dynamics of the <em>in vivo</em> brain, such as the appearance and the properties of brain oscillations or the effects of electrical stimulation of certain brain areas.</p>
+<h3 id="Towards-simulating-brains">Towards simulating brains<a class="anchor-link" href="#Towards-simulating-brains"> </a></h3><p>Now that we have an idea about what neural masses are, what are they useful for and how is this related to <code>neurolib</code>? One of the applications of neural mass models in computational neuroscience is in whole-brain modeling, where a coarse-grained simulation of the activity of a large network of brain areas is achieved by combining simulations of neural masses with structural connectivity scans (often referred to as the <a href="https://en.wikipedia.org/wiki/Connectome">connectome</a>, an example is shown in the gif below) of the human brain which captures large axonal connections that connect distant brain areas. These models offer an <em>in silico</em> approach (through computational modeling) to investigate the large-scale dynamics of the <em>in vivo</em> brain, such as the appearance and the properties of brain oscillations or the effects of electrical stimulation of certain brain areas.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p align="center">
+  <img src="https://thumbs.gfycat.com/TerrificIdioticBeagle-size_restricted.gif" width="350" />
+</p>
+<p style="font-size:10px;"><a href="https://www.youtube.com/watch?v=GbnRuRi1B-Q">Gif source</a></p>
 </div>
 </div>
 </div>
@@ -738,7 +747,13 @@ key of the Model object, i.e. <code>aln['rates_exc']</code>.</p>
 <li>A delay matrix which can be calculated from the average length of the axonal fibers connecting each brain area with another.</li>
 <li>A set of functional data that can act as a target for model optimization. <a href="https://en.wikipedia.org/wiki/Resting_state_fMRI">Resting-state fMRI</a> BOLD activity offers an easy and fairly unbiased way for calibrating whole-brain models. Usually, not the BOLD timeseries itself is used to evaluate and fit the model, but the region-wise correlation matrix, called functional connectivity (FC) matrix. This matrix measures how well the activation and deactivation of brain regions is synchronized in time.</li>
 </ul>
-<p>We can load a <code>Dataset</code> by passing the name of it in the constructor.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can load a <code>Dataset</code> by passing the name of it in the constructor. In this case, we load processed data from the <a href="http://www.humanconnectomeproject.org/">Human Connectome Project</a>:</p>
 
 </div>
 </div>
