@@ -1028,7 +1028,7 @@ particularly useful for very long and many parallel simulations.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This looks nice! The simulated FC already looks fairly similar to the empirical FC data from our <code>hcp</code> dataset shown earlier. We have also access to the underlying neuronal activity, that caused this BOLD signal. Since we have used <code>model.run(chunkwise=True)</code> to save memory, <code>neurolib</code> didn't save the full timeseries but only the last chunk.</p>
+<p>This looks nice! The simulated FC already looks fairly similar to the empirical FC data from our <code>hcp</code> dataset shown earlier. We have also access to the underlying neuronal activity, that caused this BOLD signal. Since we have used <code>model.run(chunkwise=True)</code> to save memory, <code>neurolib</code> didn't save the full timeseries but only the last chunk:</p>
 
 </div>
 </div>
@@ -1059,7 +1059,14 @@ particularly useful for very long and many parallel simulations.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Correlation-of-simulated-FC-to-empirical-FC">Correlation of simulated FC to empirical FC<a class="anchor-link" href="#Correlation-of-simulated-FC-to-empirical-FC"> </a></h3><p>We can compute the element-wise Pearson correlation of the simulated and empirical functional connectivity matrices to estimate how well the model captures the inter-areal resting-state BOLD correlations. As a rule of thumb, a correlation value of <code>0.5</code> is considered good. We use built-in functions <code>func.fc()</code> to calculate the functional connectivity of a n-dimensional timeseries and <code>func.matrix_correlation()</code> to compute the correlation between simulated and empirical data.</p>
+<p>We can see in the timeseries above that the activity in the different brain regions (each represented by a different color) tends to synchronize and create irregular bursts of global activity resulting in slow brain oscillations.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Correlation-of-simulated-FC-to-empirical-FC">Correlation of simulated FC to empirical FC<a class="anchor-link" href="#Correlation-of-simulated-FC-to-empirical-FC"> </a></h3><p>We can compute the element-wise Pearson correlation of the simulated and empirical BOLD functional connectivity matrices to estimate how well the model captures the inter-areal resting-state BOLD correlations from fMRI scans. As a rule of thumb, a correlation value of <code>0.5</code> and above is considered good. We use the built-in functions <code>func.fc()</code> to calculate the functional connectivity of a n-dimensional timeseries and <code>func.matrix_correlation()</code> to compute the correlation between simulated and empirical data.</p>
 
 </div>
 </div>
