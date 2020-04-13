@@ -68,8 +68,8 @@ include:
 
 # This specifies what badges are turned on by default for notebook posts.
 default_badges:
-  github: false
-  binder: false
+  github: true
+  binder: true
   colab: false
 
 # Everything below here should be left alone. Modifications may break fastpages
