@@ -209,13 +209,13 @@ window.onload = wrap_img;
 <p align="center">
   <img src="https://thumbs.gfycat.com/TerrificIdioticBeagle-size_restricted.gif" />
 </p>
-<p align="center" style="font-size:10px;">A DTI scan of a human brain with long-range axonal fibers. <a href="https://www.youtube.com/watch?v=GbnRuRi1B-Q">Gif source</a></p>
+<p align="center" style="font-size:10px;">A DTI scan of a human brain with long-range axonal fibers. <a href="https://www.youtube.com/watch?v=GbnRuRi1B-Q">Animation source</a></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Towards-simulating-brains">Towards simulating brains<a class="anchor-link" href="#Towards-simulating-brains"> </a></h3><p>Now that we have an idea about what neural masses are, what are they useful for and how is this related to <code>neurolib</code>? One of the applications of neural mass models in computational neuroscience is in whole-brain modeling, where a coarse-grained simulation of the activity of a large network of brain areas is achieved by combining simulations of neural masses with structural connectivity scans (often referred to as the <a href="https://en.wikipedia.org/wiki/Connectome">connectome</a>, an example is shown in the gif above) of the human brain which captures large axonal connections that connect distant brain areas. These models offer an <em>in silico</em> approach (through computational modeling) to investigate the large-scale dynamics of the <em>in vivo</em> brain, such as the appearance and the properties of brain oscillations or the effects of electrical stimulation of certain brain areas.</p>
+<h3 id="Towards-simulating-brains">Towards simulating brains<a class="anchor-link" href="#Towards-simulating-brains"> </a></h3><p>Now that we have an idea about what neural masses are, what are they useful for and how is this related to <code>neurolib</code>? One of the applications of neural mass models in computational neuroscience is in whole-brain modeling, where a coarse-grained simulation of the activity of a large network of brain areas is achieved by combining simulations of neural masses with structural connectivity scans (often referred to as the <a href="https://en.wikipedia.org/wiki/Connectome">connectome</a>, an example is shown in the animation above) of the human brain which captures large axonal connections that connect distant brain areas. These models offer an <em>in silico</em> approach (through computational modeling) to investigate the large-scale dynamics of the <em>in vivo</em> brain, such as the appearance and the properties of brain oscillations or the effects of electrical stimulation of certain brain areas.</p>
 
 </div>
 </div>
@@ -254,7 +254,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="aln---the-adaptive-linear-nonlinear-cascade-model">aln - the adaptive linear-nonlinear cascade model<a class="anchor-link" href="#aln---the-adaptive-linear-nonlinear-cascade-model"> </a></h3><p>The adaptive linear-nonlinear (<code>aln</code>) cascade model is a low-dimensional population model of spiking neural networks. Mathematically, it is a dynamical system of non-linear ordinary differential equations (ODEs). The dynamical variables of the system simulated in the <code>aln</code> model describe the average firing rate and other <strong>macroscopic variables</strong> of a randomly connected, delay-coupled network of excitatory and inhibitory <strong>adaptive exponential integrate-and-fire neurons (AdEx)</strong> with non-linear synaptic currents.</p>
-<p>Ultimately, the model is a result of various steps of model reduction starting from the Fokker-Planck equation of the AdEx neuron subject to white noise input with mean $\mu$ and variance $\sigma$. The resulting mean firing rates and the linear response function of the neural population are then stored in a lookup table. When we finally simulate the system, these precomputed quantities serve as the linear filter and the nonlinear firing rate transfer function $r = \Phi(\mu, \sigma)$ in the adaptive linear-nonlinear cascade model.</p>
+<p>Ultimately, the model is a result of various steps of model reduction starting from the Fokker-Planck equation of the AdEx neuron subject to white noise input with different mean $\mu$ and variance $\sigma$. The resulting stead-state firing rates $r$ and the linear response function of the neural population are then stored in a lookup table. When we finally simulate the system, these precomputed quantities serve as the linear filter and the nonlinear firing rate transfer function $r = \Phi(\mu, \sigma)$ in the adaptive linear-nonlinear cascade model.</p>
 
 </div>
 </div>
@@ -727,8 +727,16 @@ key of the Model object, i.e. <code>aln['rates_exc']</code>.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Whole-brain-modeling">Whole-brain modeling<a class="anchor-link" href="#Whole-brain-modeling"> </a></h2><p>Typically, in whole-brain modeling, diffusion tensor imaging (DTI) is used to infer the structural connectivity (the connection strength) between different brain areas. In a DTI scan, the direction of the diffusion of molecules is measured across the whole brain. Using <a href="https://en.wikipedia.org/wiki/Tractography">tractography</a>, this information can yield the distribution of axonal fibers in the brain that connect distant brain areas, called the connectome. Together with an atlas that divides the brain into distinct areas, a matrix can be computed that encodes how many fibers go from one area to another, the so-called structural connectivity (SC) matrix. This matrix defines the coupling strengths between brain areas and acts as an adjacency matrix of the brain network. The length of the fibers determine the signal transmission delay between all brain areas. When the structural data is combined with a computational model of the neuronal activity of the cortex, we can create a dynamical model of the whole brain.</p>
-<p>The resulting whole-brain model consists of interconnected brain areas, with each brain area having their internal neural dynamics. The neural activity is used to simulate hemodynamic <a href="https://en.wikipedia.org/wiki/Blood-oxygen-level-dependent_imaging">BOLD</a> activity using the Balloon-Windkessel model, which can be compared to empirical fMRI data. The simulated BOLD activity is used to compute correlations of activity between all brain areas, the so called <a href="https://en.wikipedia.org/wiki/Resting_state_fMRI#Functional">resting state functional connectivity</a>, which can then be fitted to empirical fMRI resting-state data.</p>
+<p>The resulting whole-brain model consists of interconnected brain areas, with each brain area having their internal neural dynamics. The neural activity is used to simulate hemodynamic <a href="https://en.wikipedia.org/wiki/Blood-oxygen-level-dependent_imaging">BOLD</a> activity using the Balloon-Windkessel model, which can be compared to empirical fMRI data. The simulated BOLD activity is used to compute correlations of activity between all brain areas, the so called <a href="https://en.wikipedia.org/wiki/Resting_state_fMRI#Functional">resting state functional connectivity</a>, which can then be fitted to empirical fMRI resting-state data. One such example of simulated brain activity is shown in the animation below.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p align="center">
+  <img src="https://github.com/neurolib-dev/neurolib/raw/master/resources/brain_slow_waves_small.gif" />
+</p>
 </div>
 </div>
 </div>
