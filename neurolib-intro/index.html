@@ -182,7 +182,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In its essence, <code>neurolib</code> is a computational framework for simulating coupled neural mass models written in Python. It helps you to easily load brain scan data to construct networks of neural masses, which can be used to simulate whole-brain dynamics. Finally, <code>neurolib</code> can simulate BOLD activity from the underlying neural activity to be able to compare simulations to fMRI brain scan data. You can checkout <code>neurolib</code> on our <a href="https://github.com/neurolib-dev/neurolib">GitHub page</a> and find a lot of <a href="https://github.com/neurolib-dev/neurolib/tree/master/examples">examples</a> there, including more advanced features like parameter exploration and evolutionary optimization.</p>
+<p>In its essence, <code>neurolib</code> is a computational framework for simulating coupled neural mass models written in Python. It helps you to easily load structural brain scan data to construct brain networks where each node is a neural mass representing a single brain area. This network model can be used to simulate whole-brain dynamics. Finally, <code>neurolib</code> allows you to simulate BOLD activity from the underlying neural activity to be able to compare simulations to fMRI brain scan data. You can checkout <code>neurolib</code> on our <a href="https://github.com/neurolib-dev/neurolib">GitHub page</a> and find a lot of <a href="https://github.com/neurolib-dev/neurolib/tree/master/examples">examples</a> there, including more advanced features like parameter exploration and evolutionary optimization.</p>
 
 </div>
 </div>
@@ -239,7 +239,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>On the left side of the figure, you can see structural brain scan data with the axonal fiber tractography (<strong>Connectome</strong>) and a parcellation scheme (<strong>AAL2 atlas</strong>) that divides the brain into distinct volumes. Below, you can see the <strong>Structural connectivity</strong> matrix, which captures the coupling strength between each area and is derived from the number of reconstructed axonal fibers from one brain area to another, and the <strong>Delay matrix</strong>, which captures the signal transmission delay between brain regions and is derived from the length of the fibers. On the right side, you can see a schematic of the <code>aln</code> neural mass model, representing a single <strong>brain area</strong> with excitatory neurons (orange population, E) and inhibitory neurons (blue population, I) and connections within and between the populations. Combining the structural brain data with the neural model is how we construct a <strong>whole-brain model</strong>.</p>
+<p>On the left side of the figure, you can see structural brain scan data with the axonal fiber tractography (<strong>Connectome</strong>) and a parcellation scheme (<strong>AAL2 atlas</strong>) that divides the brain into distinct volumes. Below, you can see the <strong>Structural connectivity</strong> matrix, which captures the coupling strength between each area and is derived from the number of reconstructed axonal fibers from one brain area to another, and the <strong>Delay matrix</strong>, which captures the signal transmission delay between brain areas and is derived from the length of the fibers. On the right side, you can see a schematic of the <code>aln</code> neural mass model, representing a single <strong>brain area</strong> with excitatory neurons (orange population, E) and inhibitory neurons (blue population, I) and connections within and between the populations. Combining the structural brain data with the neural model is how we construct a <strong>whole-brain model</strong>.</p>
 
 </div>
 </div>
@@ -254,7 +254,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="aln---the-adaptive-linear-nonlinear-cascade-model">aln - the adaptive linear-nonlinear cascade model<a class="anchor-link" href="#aln---the-adaptive-linear-nonlinear-cascade-model"> </a></h3><p>The adaptive linear-nonlinear (<code>aln</code>) cascade model is a low-dimensional population model of spiking neural networks. Mathematically, it is a dynamical system of non-linear ordinary differential equations (ODEs). The dynamical variables of the system simulated in the <code>aln</code> model describe the average firing rate and other <strong>macroscopic variables</strong> of a randomly connected, delay-coupled network of excitatory and inhibitory <strong>adaptive exponential integrate-and-fire neurons (AdEx)</strong> with non-linear synaptic currents.</p>
-<p>Ultimately, the model is a result of various steps of model reduction starting from the Fokker-Planck equation of the AdEx neuron subject to white noise input with different mean $\mu$ and variance $\sigma$. The resulting stead-state firing rates $r$ and the linear response function of the neural population are then stored in a lookup table. When we finally simulate the system, these precomputed quantities serve as the linear filter and the nonlinear firing rate transfer function $r = \Phi(\mu, \sigma)$ in the adaptive linear-nonlinear cascade model.</p>
+<p>Ultimately, the model is a result of various steps of model reduction starting from the Fokker-Planck equation of the AdEx neuron subject to white noise input with different mean $\mu$ and variance $\sigma$. The resulting steady-state firing rates $r$ and the linear response function of the neural population are then stored in a lookup table. When we finally simulate the system, these precomputed quantities serve as the linear filter and the nonlinear firing rate transfer function $r = \Phi(\mu, \sigma)$ in the adaptive linear-nonlinear cascade model.</p>
 
 </div>
 </div>
@@ -267,7 +267,7 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's get going after all this reading. <code>neurolib</code> makes it easy to set of your simulation. Below, we demonstrate how you set up a model and interact with its parameters. We will first explore the a single node and get comfortable with the way things work and then set up a whole-brain simulation and simulate fMRI activity.</p>
+<p>Let's get going after all this reading. <code>neurolib</code> makes it easy to set of your simulation. Below, we demonstrate how you set up a model and interact with its parameters. We will first explore a single node which represents a brain area and get comfortable with the way things work and later set up a whole-brain simulation and simulate fMRI activity.</p>
 
 </div>
 </div>
@@ -753,7 +753,7 @@ key of the Model object, i.e. <code>aln['rates_exc']</code>.</p>
 <ul>
 <li>A structural connectivity (SC) matrix capturing the synaptic connection strengths between brain areas, often derived from <a href="https://en.wikipedia.org/wiki/Tractography">DTI tractography</a> of the whole brain. The connectome is then typically parcellated in a preferred atlas (for example the AAL2 atlas) and the number of axonal fibers connecting each brain area with every other area is counted. This number serves as a indication of the synaptic coupling strengths between the areas of the brain. </li>
 <li>A delay matrix which can be calculated from the average length of the axonal fibers connecting each brain area with another.</li>
-<li>A set of functional data that can act as a target for model optimization. <a href="https://en.wikipedia.org/wiki/Resting_state_fMRI">Resting-state fMRI</a> BOLD activity offers an easy and fairly unbiased way for calibrating whole-brain models. Usually, not the BOLD timeseries itself is used to evaluate and fit the model, but the region-wise correlation matrix, called functional connectivity (FC) matrix. This matrix measures how well the activation and deactivation of brain regions is synchronized in time.</li>
+<li>A set of functional data that can act as a target for model optimization. <a href="https://en.wikipedia.org/wiki/Resting_state_fMRI">Resting-state fMRI</a> BOLD activity offers an easy and fairly unbiased way for calibrating whole-brain models. Usually, not the BOLD timeseries itself is used to evaluate and fit the model, but the area-wise correlation matrix, called functional connectivity (FC) matrix. This matrix measures how well the activation and deactivation of brain areas is synchronized in time.</li>
 </ul>
 
 </div>
@@ -793,7 +793,7 @@ key of the Model object, i.e. <code>aln['rates_exc']</code>.</p>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The connectivity matrix is a <code>numpy.array</code> with it's entries representing the coupling strength between all brain regions. Its dimensions are <code>N x N</code>, with <code>N</code> being the number of brain areas of the chosen atlas:</p>
+<p>The connectivity matrix is a <code>numpy.array</code> with it's entries representing the coupling strength between all brain areas. Its dimensions are <code>N x N</code>, with <code>N</code> being the number of brain areas of the chosen atlas:</p>
 
 </div>
 </div>
@@ -1082,7 +1082,7 @@ particularly useful for very long and many parallel simulations.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see in the timeseries above that the activity in the different brain regions (each represented by a different color) tends to synchronize and create irregular bursts of global activity resulting in slow brain oscillations.</p>
+<p>We can see in the timeseries above that the activity in the different brain areas (each represented by a different color) tends to synchronize and create irregular bursts of global activity resulting in slow brain oscillations.</p>
 
 </div>
 </div>
@@ -1163,7 +1163,7 @@ Mean FC/FC correlation: 0.54
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Last build  11.04.20 13:24:15
+<pre>Last build  14.04.20 11:19:08
 </pre>
 </div>
 </div>
