@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://caglorithm.github.io/notebooks/covid-fatality-rates/</loc>
+<lastmod>2020-03-20T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://caglorithm.github.io/notebooks/covid-cases-to-deaths/</loc>
+<lastmod>2020-03-21T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://caglorithm.github.io/notebooks/neurolib-intro/</loc>
+<lastmod>2020-04-10T00:00:00-05:00</lastmod>
+</url>
+<url>
+<loc>https://caglorithm.github.io/notebooks/about/</loc>
+</url>
+<url>
+<loc>https://caglorithm.github.io/notebooks/</loc>
+</url>
+<url>
+<loc>https://caglorithm.github.io/notebooks/search/</loc>
+</url>
+<url>
+<loc>https://caglorithm.github.io/notebooks/categories/</loc>
+</url>
+</urlset>
