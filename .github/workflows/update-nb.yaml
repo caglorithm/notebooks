@@ -50,7 +50,6 @@ jobs:
 		papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
         papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
         papermill --kernel python3 2020-03-20-covid19-fatality-rates.ipynb 2020-03-20-covid19-fatality-rates.ipynb
-		
 
     - name: push files
       if: github.event_name != 'push'
@@ -67,7 +66,7 @@ jobs:
       run: |
         sudo chmod -R 777 .
         cd _notebooks
-		papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
+        papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
         papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
         papermill --kernel python3 2020-03-20-covid19-fatality-rates.ipynb 2020-03-20-covid19-fatality-rates.ipynb
 
