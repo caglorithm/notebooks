@@ -4,10 +4,13 @@ title: About Me
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+Hey! 
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+During day, I'm a theoretical physicist in computational neuroscience, trying to understand the brain as a dynamical system. I'm also building simulation framework called `neurolib` which you can [check out here](https://github.com/neurolib-dev/neurolib). 
+
+During night, I usually do the same.
+
+You can find more information about my projects on my [GitHub profile page](https://github.com/caglorithm).
 
 
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+This blog is powered by [fastpages](https://github.com/fastai/fastpages).
