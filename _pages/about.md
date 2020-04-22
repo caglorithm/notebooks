@@ -12,6 +12,6 @@ During night, I usually sleep.
 
 You can find more information about my projects on my [GitHub profile page](https://github.com/caglorithm).
 
-Thanks for visiting![^1].
+Thanks for visiting! [^1]
 
-[^1] This blog is powered by [fastpages](https://github.com/fastai/fastpages).
+[^1]: This blog is powered by [fastpages](https://github.com/fastai/fastpages).
