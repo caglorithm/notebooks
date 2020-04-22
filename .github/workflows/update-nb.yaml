@@ -87,7 +87,7 @@ jobs:
       run: |
         git config --global user.email "caglorithm@gmail.com"
         git config --global user.name "caglorithm"
-        git add _posts/2020-04-10-neurolib-example.md
+        git add _posts/*.md
         git commit -m 'push markdown files'
         git push -f
 
