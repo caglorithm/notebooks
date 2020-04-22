@@ -2,3 +2,4 @@ neurolib
 matplotlib
 numpy
 seaborn
+pandas
