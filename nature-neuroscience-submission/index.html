@@ -175,8 +175,22 @@ window.onload = wrap_img;
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We use the wonderful functions provided in <code>requests_html</code> to scrape the data from <a href="https://www.nature.com/">Nature</a>. .</p>
-<p>The script below goes through all search results from the Nature website, filtered by a specific subject, in this case it is "computational-neuroscience". We get a list of all articles by filtering the relevant elements we want to iterate through using the function <code>base_html.html.find()</code>. Then, we can easily get the relevant elements of the search results (the title and the html links to each article for example) using the attributes <code>.text</code> and <code>.links</code>.</p>
+<p>To get this information, we can crawl publicly available data from the <a href="https://www.nature.com/">Nature website</a>. Every article's page has the time of submission, acceptance and publication that we can gather to compute an average. An <a href="https://www.nature.com/articles/nn.2983">example</a> is shown below.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p align="center">
+  <img src="../images/nature_screenshot.png" />
+</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We use the wonderful functions provided in <code>requests_html</code> to scrape the data. The script below goes through all search results from the Nature website, filtered by a specific subject, in this case it is "computational-neuroscience". We get a list of all articles by filtering the relevant elements we want to iterate through using the function <code>base_html.html.find()</code>. Then, we can easily get the relevant elements of the search results (the title and the html links to each article for example) using the attributes <code>.text</code> and <code>.links</code>.</p>
 
 </div>
 </div>
