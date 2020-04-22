@@ -62,7 +62,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": "This is where you put the contents of your About page. Like all your pages, it’s in Markdown format. . This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
+          "content": "Hey! . During day, I’m a theoretical physicist in computational neuroscience, trying to understand the brain as a dynamical system. I’m also building simulation framework called neurolib which you can check out here. . During night, I usually do the same. . You can find more information about my projects on my GitHub profile page. . This blog is powered by fastpages. .",
           "url": "https://caglorithm.github.io/notebooks/about/",
           "relUrl": "/about/",
           "date": ""
