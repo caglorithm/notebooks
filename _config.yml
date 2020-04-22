@@ -55,7 +55,7 @@ show_image: true
 show_tags: true
 
 # Add your Google Analytics ID here if you have one and want to use it
-google_analytics: GTM-WMD5PDG
+google_analytics: UA-164338883-1
 
 exclude:
   - docker-compose.yml
