@@ -55,6 +55,17 @@
         
     
   
+    
+        ,"post5": {
+            "title": "COVID-19 Fatality rates",
+            "content": "Last build 22.04.20 14:17:38 . Cummulative confirmed cases per deaths . The fatality rate is calculated as the cumulative number of confirmed cases divided by the cumulative number of deaths. . click the country label that you want to highlight. Shift + click to compare different countries. .",
+            "url": "https://caglorithm.github.io/notebooks/covid-fatality-rates/",
+            "relUrl": "/covid-fatality-rates/",
+            "date": " • Mar 13, 2020"
+        }
+        
+    
+  
 
   
   
