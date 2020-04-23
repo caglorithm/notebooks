@@ -5,3 +5,4 @@ seaborn
 pandas
 scipy
 lxml
+requests_html
