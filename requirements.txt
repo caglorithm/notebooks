@@ -7,3 +7,4 @@ pandas
 scipy
 lxml
 requests_html
+countryinfo
