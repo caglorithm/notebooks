@@ -39,31 +39,35 @@ jobs:
     #   #if: github.event_name != 'push'
     #   run: npm install -g electron@6.1.4 orca
 
-    - name: run covid notebooks
-      if: github.event_name != 'push'
-      run: |
-        pip install numpy matplotlib pandas seaborn papermill ipykernel jupyter altair
-        python3 -m ipykernel install --user --name python3
-        sudo chmod -R 777 .
-        cd _notebooks
-        ls *.ipynb
-        papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
-        papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
-        papermill --kernel python3 2020-03-20-covid19-fatality-rates.ipynb 2020-03-20-covid19-fatality-rates.ipynb
-
-    - name: push files
-      if: github.event_name != 'push'
-      run: |
-        git config --global user.email "caglorithm@gmail.com"
-        git config --global user.name "caglorithm"
-        git add _notebooks/
-        git add images/
-        git commit -m 'update notebooks'
-        git push -f
+    # - name: run covid notebooks
+    #   if: github.event_name != 'push'
+    #   run: |
+    #     pip install -r requirements.txt
+    #     pip install papermill ipykernel jupyter
+    #     python3 -m ipykernel install --user --name python3
+    #     sudo chmod -R 777 .
+    #     cd _notebooks
+    #     papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
+    #     papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
+    #     papermill --kernel python3 2020-03-20-covid19-fatality-rates.ipynb 2020-03-20-covid19-fatality-rates.ipynb
+    #
+    # - name: push files
+    #   if: github.event_name != 'push'
+    #   run: |
+    #     git config --global user.email "caglorithm@gmail.com"
+    #     git config --global user.name "caglorithm"
+    #     git add _notebooks/
+    #     git add images/
+    #     git commit -m 'update notebooks'
+    #     git push -f
 
     - name: run notebooks - scheduled
       if: github.event_name == 'schedule'
       run: |
+        pip install -r requirements.txt
+        pip install papermill ipykernel jupyter
+        python3 -m ipykernel install --user --name python3
+        sudo chmod -R 777 .	  
         sudo chmod -R 777 .
         cd _notebooks
         papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
