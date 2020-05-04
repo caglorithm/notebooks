@@ -2,11 +2,11 @@
   
     
         "post0": {
-            "title": "COVID-19 - Poster generator",
+            "title": "COVID-19 - Dashboard overview poster",
             "content": "This page was last built on 04.05.20 20:06:06 . The number of new cases per day is averaged using a 10-day rolling window. If the last reported cases are &lt; 25% of the maximum, the data is shown in green. If the last cases are &gt; 75% of the maximum, the data is shown in red. .",
             "url": "https://caglorithm.github.io/notebooks/covid-dashboard/",
             "relUrl": "/covid-dashboard/",
-            "date": " • May 4, 2020"
+            "date": " • May 3, 2020"
         }
         
     
