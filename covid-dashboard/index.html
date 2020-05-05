@@ -198,7 +198,26 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The number of new cases per day is averaged using a 10-day rolling window. If the last reported cases are &lt; 25% of the maximum, the data is shown in green. If the last cases are &gt; 75% of the maximum, the data is shown in red.</p>
+<p><strong>Colors:</strong> If the last reported cases are &lt; 25% of the maximum, the data is shown in green. Else, if the last cases are &gt; 75% of the maximum, the data is shown in red. Else, grey.</p>
+<p><strong>Preprocessing:</strong>
+The number of new cases per day is averaged using a 10-day rolling window. Data is shown from the day of the 100th positive case until today. Countries are included if they have at least 1000 cases and at least 100 deaths. Countries are sorted by total number of cases.</p>
+<p><strong>Data:</strong> The data is pulled from the COVID-19 Data Repository by Johns Hopkins CSSE</p>
+<p><strong>Tools:</strong> Python and Matplotlib, updated daily</p>
+<p><strong>Versions:</strong></p>
+<ul>
+<li><a href="https://i.imgur.com/jnjOG1z.png">Color neural</a> version for folks who prefer other colors than red and green</li>
+<li><a href="https://i.imgur.com/HP2N3GK.png">Alphabetically sorted</a> including China</li>
+<li><a href="https://i.imgur.com/4rWGRwT.png">Larger version</a> with less filtering and many more countries <strong>including Australia and New Zealand</strong></li>
+<li><a href="https://i.imgur.com/w2DUkJe.png">Alphabetical and large</a></li>
+</ul>
+<p><strong>FAQ:</strong></p>
+<ul>
+<li>Q: Where is New Zealand? A: What's "New Zealand"?! <a href="https://i.imgur.com/w2DUkJe.png">Here you go ;)</a></li>
+<li>Q: What am I seeing here? A: New cases per day per country.</li>
+<li>Q: Does this even make sense without the absolute numbers since country X is doing so much better than country Y! A: The Y-axis is normalized to the maximum number of new cases per country. Otherwise you could not visually compare a large country to a small country. There are enough other figures comparing absolute numbers between countries. This is not one of them.</li>
+<li>Q: I don't trust this data! A: Ok. (it's Johns Hopkins data)</li>
+<li>Q: Why is country XYZ not included? A: Either because it has not enough cases (like NZ) or I forgot about it (like China). See the larger version above.</li>
+</ul>
 
 </div>
 </div>
