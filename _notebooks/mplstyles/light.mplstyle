@@ -254,7 +254,7 @@ patch.facecolor        : FFFFFF
 # The font.size property is the default font size for text, given in pts.
 # 10 pt is the standard value.
 #
-font.family         : Bitstream Vera Sans Mono
+font.family         : DejaVu Sans Mono
 #font.style          : normal
 #font.variant        : normal
 #font.weight         : medium

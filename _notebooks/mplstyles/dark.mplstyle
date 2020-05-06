@@ -111,7 +111,7 @@ grid.color : 5C6370
 
 # Where your matplotlib data lives if you installed to a non-default
 # location.  This is where the matplotlib fonts, bitmaps, etc reside
-#datapath : /home/jdhunter/mpldata
+datapath : mplstyles
 
 
 ### LINES
@@ -232,7 +232,7 @@ patch.facecolor        : 282C34
 # The font.size property is the default font size for text, given in pts.
 # 10 pt is the standard value.
 #
-font.family         : Bitstream Vera Sans Mono
+font.family         : DejaVu Sans Mono
 #font.style          : normal
 #font.variant        : normal
 #font.weight         : medium
