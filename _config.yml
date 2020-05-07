@@ -7,7 +7,7 @@
 # https://learnxinyminutes.com/docs/yaml/
 
 title: Not even odd
-description: Notebooks are just fancy calculators.
+description: Notebooks are just fancy calculators. All original content is licensed under Creative Commons.
 github_username: caglorithm
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "notebooks"
@@ -72,6 +72,10 @@ default_badges:
   binder: true
   colab: false
 
+# Escape HTML in post descriptions
+html_escape:
+  description: false
+
 # Everything below here should be left alone. Modifications may break fastpages
 future: true
 theme: minima
@@ -86,6 +90,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-paginate
   - jekyll-sitemap
+  - jemoji
 
 # See https://jekyllrb.com/docs/pagination/
 # For pagination to work, you cannot have index.md at the root of your repo, instead you must rename this file to index.html
