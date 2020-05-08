@@ -483,4 +483,9 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 .highlight .gd { color: #ff5555; }
 
+/* a dark, off-black for the bg */
+/* an off-white for the text */
+/* for the border-top separators */
+/* such as the site title in the header, visited */
+
 /*# sourceMappingURL=style.css.map */
