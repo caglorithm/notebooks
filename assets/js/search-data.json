@@ -84,7 +84,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": "Hey! . During day, I’m a theoretical physicist in computational neuroscience, trying to understand the brain as a dynamical system. I’m also building a brain simulation framework called neurolib which you can check out here. . During night, I usually sleep. . You can find more information about my projects on my GitHub profile page. . Thanks for visiting! 1 . This blog is powered by fastpages. &#8617; . |",
+          "content": "Hey! . During day, I’m a theoretical physicist in computational neuroscience, trying to understand the brain as a dynamical system at the Neural Information Processing Group at Technische Universität Berlin. . I’m also building a brain simulation framework called neurolib which you can check out here. . During night, I usually sleep. . You can find more information about my projects on my GitHub profile page. . I am only able to run this blog because of the incredible achievements of the global open source community providing amazing free software to the world. Please give back whenever you can. . You can reach me via email or via the handle @caglorithm on Telegram and Twitter. . Thanks for visiting! 1 . This blog is powered by fastpages. &#8617; . |",
           "url": "https://caglorithm.github.io/notebooks/about/",
           "relUrl": "/about/",
           "date": ""
