@@ -331,6 +331,10 @@ table td { border: 1px solid #e8e8e8; }
 /** Grid helpers */
 @media screen and (min-width: 800px) { .one-half { width: calc(50% - (30px / 2)); } }
 
+/* a dark, off-black for the bg */
+/* an off-white for the text */
+/* for the border-top separators */
+/* such as the site title in the header, visited */
 /*-----------------------------------*/
 /*--- IMPORT STYLES FOR FASTPAGES ---*/
 .post img { display: block; vertical-align: top; margin-left: auto; margin-right: auto; }
@@ -482,10 +486,5 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 .highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo, .highlight .il { color: #bd93f9; }
 
 .highlight .gd { color: #ff5555; }
-
-/* a dark, off-black for the bg */
-/* an off-white for the text */
-/* for the border-top separators */
-/* such as the site title in the header, visited */
 
 /*# sourceMappingURL=style.css.map */
