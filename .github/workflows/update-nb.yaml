@@ -1,0 +1,123 @@
+name: Update Notebooks
+on:
+  schedule:
+    - cron:  '0 1 * * *'
+  #push:
+  #  branches:
+  #    - master 
+  #pull_request: 
+  issues:
+    types: [opened]
+
+jobs:
+  update-notebooks:
+    runs-on: ubuntu-latest
+    steps:
+  
+    - name: See event name
+      run: |
+        echo "${EVENT}"
+      env:
+        EVENT: ${{ github.event_name }}
+    
+    - name: Copy Repository Contents
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      if: github.event_name != 'push'
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+
+    # - name: Setup Node
+    #   if: github.event_name != 'push'
+    #   uses: actions/setup-node@v1
+    #   with:
+    #     node-version: '10.x'
+      
+    # - name: install plotly js dependencies
+    #   #if: github.event_name != 'push'
+    #   run: npm install -g electron@6.1.4 orca
+
+    # - name: run covid notebooks
+    #   if: github.event_name != 'push'
+    #   run: |
+    #     pip install -r requirements.txt
+    #     pip install papermill ipykernel jupyter
+    #     python3 -m ipykernel install --user --name python3
+    #     sudo chmod -R 777 .
+    #     cd _notebooks
+    #     papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
+    #     papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
+    #     papermill --kernel python3 2020-03-20-covid19-fatality-rates.ipynb 2020-03-20-covid19-fatality-rates.ipynb
+    #
+    # - name: push files
+    #   if: github.event_name != 'push'
+    #   run: |
+    #     git config --global user.email "caglorithm@gmail.com"
+    #     git config --global user.name "caglorithm"
+    #     git add _notebooks/
+    #     git add images/
+    #     git commit -m 'update notebooks'
+    #     git push -f
+
+    - name: run notebooks - scheduled
+      if: github.event_name == 'schedule'
+      run: |
+        pip install -r requirements.txt
+        pip install papermill ipykernel jupyter
+        python3 -m ipykernel install --user --name python3
+        sudo chmod -R 777 .	  
+        sudo chmod -R 777 .
+        cd _notebooks
+        papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
+        papermill --kernel python3 2020-03-20-covid19-fatality-rates.ipynb 2020-03-20-covid19-fatality-rates.ipynb
+        papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
+        papermill --kernel python3 2020-04-25-covid-herd-immunity.ipynb 2020-04-25-covid-herd-immunity.ipynb
+        papermill --kernel python3 2020-05-04-covid-dashboard.ipynb 2020-05-04-covid-dashboard.ipynb
+
+    - name: push updates - scheduled
+      if: github.event_name == 'schedule'
+      run: |
+        git config --global user.email "caglorithm@gmail.com"
+        git config --global user.name "caglorithm"
+        git add _notebooks/
+        git add images/
+        git commit -m 'update notebooks'
+        git push -f
+
+    - name: convert notebooks and word docs to posts
+      uses: ./_action_files
+
+    # - name: push markdown files
+    #   run: |
+    #     git config --global user.email "caglorithm@gmail.com"
+    #     git config --global user.name "caglorithm"
+    #     git add _posts/*.md
+    #     git commit -m 'push markdown files'
+    #     git push -f
+
+    - name: setup directories for Jekyll build
+      run: |
+        rm -rf _site
+        sudo chmod -R 777 .
+
+    - name: Jekyll build
+      uses: docker://hamelsmu/fastpages-jekyll
+      with:
+        args: bash -c "gem install bundler && jekyll build -V"
+      env:
+        JEKYLL_ENV: 'production'
+        
+    - name: copy CNAME file into _site if CNAME exists
+      if: github.event_name != 'pull_request'
+      run: |
+        sudo chmod -R 777 _site/
+        cp CNAME _site/ 2>/dev/null || :
+        
+    - name: Deploy
+      if: github.event_name != 'pull_request'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
+        publish_dir: ./_site
