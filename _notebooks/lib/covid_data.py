@@ -47,6 +47,7 @@ def load_timeseries(name,
           .reset_index()
           .sort_values(["country", "date"])
           .set_index("date"))
+    
     return df
 
 
@@ -91,7 +92,6 @@ def get_df(MIN_CASES = 1000, SINCE_CASES = 100):
     df_cases = pd.concat((df_confirmed, df_deaths), axis=1)
     df_cases.columns = ['country', 'type', 'confirmed', 'country', 'type', 'deaths']
     df_cases = df_cases.loc[:,~df_cases.columns.duplicated()]
-    
     
     #hide
     # create diffs
