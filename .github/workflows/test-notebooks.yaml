@@ -36,8 +36,8 @@ jobs:
         sudo chmod -R 777 .	  
         sudo chmod -R 777 .
         cd _notebooks
-        papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
-        papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
-        papermill --kernel python3 2020-04-25-covid-herd-immunity.ipynb 2020-04-25-covid-herd-immunity.ipynb
-        papermill --kernel python3 2020-05-04-covid-dashboard.ipynb 2020-05-04-covid-dashboard.ipynb
+        python3 -m papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
+        python3 -m papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
+        python3 -m papermill --kernel python3 2020-04-25-covid-herd-immunity.ipynb 2020-04-25-covid-herd-immunity.ipynb
+        python3 -m papermill --kernel python3 2020-05-04-covid-dashboard.ipynb 2020-05-04-covid-dashboard.ipynb
 
