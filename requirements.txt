@@ -7,3 +7,4 @@ scipy
 lxml
 requests_html
 countryinfo
+setuptools
