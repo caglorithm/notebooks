@@ -1,3 +1,4 @@
+setuptools
 neurolib
 matplotlib
 numpy
@@ -7,4 +8,3 @@ scipy
 lxml
 requests_html
 countryinfo
-setuptools

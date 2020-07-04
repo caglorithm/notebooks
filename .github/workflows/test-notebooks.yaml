@@ -27,7 +27,7 @@ jobs:
       with:
         python-version: 3.7
 
-    - name: run notebooks
+    - name: Run notebooks
       run: |
         python3 -m pip install -r requirements.txt
         python3 -m pip install papermill ipykernel jupyter
