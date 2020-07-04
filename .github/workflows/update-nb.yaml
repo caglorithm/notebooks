@@ -64,8 +64,8 @@ jobs:
     - name: run notebooks - scheduled
       if: github.event_name == 'schedule'
       run: |
-        pip install -r requirements.txt
-        pip install papermill ipykernel jupyter
+        python3 -m pip install -r requirements.txt
+        python3 -m pip install papermill ipykernel jupyter
         python3 -m ipykernel install --user --name python3
         sudo chmod -R 777 .	  
         sudo chmod -R 777 .
