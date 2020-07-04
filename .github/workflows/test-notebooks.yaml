@@ -1,0 +1,42 @@
+name: Test notebooks on push
+on:
+  push:
+   branches:
+     - master
+  pull_request:
+  issues:
+    types: [opened]
+
+jobs:
+  update-notebooks:
+    runs-on: ubuntu-latest
+    steps:
+  
+    - name: See event name
+      run: |
+        echo "${EVENT}"
+      env:
+        EVENT: ${{ github.event_name }}
+    
+    - name: Copy Repository Contents
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      if: github.event_name != 'push'
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+
+    - name: run notebooks
+      run: |
+        pip install -r requirements.txt
+        pip install papermill ipykernel jupyter
+        python3 -m ipykernel install --user --name python3
+        sudo chmod -R 777 .	  
+        sudo chmod -R 777 .
+        cd _notebooks
+        papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
+        papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
+        papermill --kernel python3 2020-04-25-covid-herd-immunity.ipynb 2020-04-25-covid-herd-immunity.ipynb
+        papermill --kernel python3 2020-05-04-covid-dashboard.ipynb 2020-05-04-covid-dashboard.ipynb
+
