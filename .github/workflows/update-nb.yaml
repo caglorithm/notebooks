@@ -64,17 +64,17 @@ jobs:
     - name: run notebooks - scheduled
       if: github.event_name == 'schedule'
       run: |
-        python3 -m pip install --upgrade setuptools
-        python3 -m pip install -r requirements.txt
-        python3 -m pip install papermill ipykernel jupyter
+        pip install --user --upgrade setuptools
+        pip install --user -r requirements.txt
+        pip install --user papermill ipykernel jupyter
         python3 -m ipykernel install --user --name python3
         sudo chmod -R 777 .	  
         sudo chmod -R 777 .
         cd _notebooks
-        python3 -m papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
-        python3 -m papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
-        python3 -m papermill --kernel python3 2020-04-25-covid-herd-immunity.ipynb 2020-04-25-covid-herd-immunity.ipynb
-        python3 -m papermill --kernel python3 2020-05-04-covid-dashboard.ipynb 2020-05-04-covid-dashboard.ipynb
+        papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
+        papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
+        papermill --kernel python3 2020-04-25-covid-herd-immunity.ipynb 2020-04-25-covid-herd-immunity.ipynb
+        papermill --kernel python3 2020-05-04-covid-dashboard.ipynb 2020-05-04-covid-dashboard.ipynb
 
     - name: push updates - scheduled
       if: github.event_name == 'schedule'
