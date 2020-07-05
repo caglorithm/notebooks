@@ -25,14 +25,13 @@ jobs:
       if: github.event_name != 'push'
       uses: actions/setup-python@v1
       with:
-        python-version: 3.7
+        python-version: 3.6
 
     - name: Run notebooks
       run: |
-        pip3 install --upgrade setuptools wheel
-        pip3 install -r requirements.txt
-        pip3 install papermill ipykernel jupyter
-        pip3 install papermill
+        pip install --upgrade setuptools wheel
+        pip install -r requirements.txt
+        pip install papermill ipykernel jupyter
         python3 -m ipykernel install --user --name python3
         sudo chmod -R 777 .	  
         sudo chmod -R 777 .
