@@ -24,7 +24,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Python
-      if: github.event_name != 'push'
+      # if: github.event_name != 'push'
       uses: actions/setup-python@v1
       with:
         python-version: 3.7
@@ -62,7 +62,7 @@ jobs:
     #     git push -f
 
     - name: run notebooks - scheduled
-      if: github.event_name == 'schedule'
+      # if: github.event_name == 'schedule'
       run: |
         pip install --upgrade setuptools wheel
         pip install -r requirements.txt
@@ -76,7 +76,7 @@ jobs:
         papermill --kernel python3 2020-05-04-covid-dashboard.ipynb 2020-05-04-covid-dashboard.ipynb
 
     - name: push updates - scheduled
-      if: github.event_name == 'schedule'
+      # if: github.event_name == 'schedule'
       run: |
         git config --global user.email "caglorithm@gmail.com"
         git config --global user.name "caglorithm"
@@ -109,13 +109,13 @@ jobs:
         JEKYLL_ENV: 'production'
         
     - name: copy CNAME file into _site if CNAME exists
-      if: github.event_name != 'pull_request'
+      # if: github.event_name != 'pull_request'
       run: |
         sudo chmod -R 777 _site/
         cp CNAME _site/ 2>/dev/null || :
         
     - name: Deploy
-      if: github.event_name != 'pull_request'
+      # if: github.event_name != 'pull_request'
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
