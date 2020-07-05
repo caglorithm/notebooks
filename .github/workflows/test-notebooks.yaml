@@ -29,6 +29,8 @@ jobs:
 
     - name: Run notebooks
       run: |
+        pip3 install --user virtualenv
+        pip3 fix-user-path
         pip3 install --upgrade setuptools wheel
         pip3 install --user --upgrade setuptools wheel	
         pip3 install --user -r requirements.txt	
