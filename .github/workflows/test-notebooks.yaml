@@ -29,9 +29,9 @@ jobs:
 
     - name: Run notebooks
       run: |
-        pip install -r requirements.txt
-        pip install --upgrade setuptools wheel		
-        pip install papermill ipykernel jupyter
+        pip3 install -r requirements.txt
+        pip3 install --upgrade setuptools wheel		
+        pip3 install --user papermill ipykernel jupyter
         python3 -m ipykernel install --user --name python3
         sudo chmod -R 777 .
         cd _notebooks
