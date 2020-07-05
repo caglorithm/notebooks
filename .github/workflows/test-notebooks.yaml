@@ -35,8 +35,8 @@ jobs:
         python3 -m ipykernel install --user --name python3
         sudo chmod -R 777 .
         cd _notebooks
-        ~/.local/bin/ papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
-        ~/.local/bin/ papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
-        ~/.local/bin/ papermill --kernel python3 2020-04-25-covid-herd-immunity.ipynb 2020-04-25-covid-herd-immunity.ipynb
-        ~/.local/bin/ papermill --kernel python3 2020-05-04-covid-dashboard.ipynb 2020-05-04-covid-dashboard.ipynb
+        ~/.local/bin/papermill --kernel python3 2020-03-21-covid19-cases-to-deaths.ipynb 2020-03-21-covid19-cases-to-deaths.ipynb
+        ~/.local/bin/papermill --kernel python3 2020-04-22-afd-data.ipynb 2020-04-22-afd-data.ipynb
+        ~/.local/bin/papermill --kernel python3 2020-04-25-covid-herd-immunity.ipynb 2020-04-25-covid-herd-immunity.ipynb
+        ~/.local/bin/papermill --kernel python3 2020-05-04-covid-dashboard.ipynb 2020-05-04-covid-dashboard.ipynb
 
