@@ -217,6 +217,23 @@ window.onload = wrap_img;
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Sonification:</strong>
+A sine wave is frequency modulated with the number of new daily cases. The amplitude is modulated with the daily change of new daily cases.</p>
+<p><strong>Colors:</strong> 
+If the last reported cases are &lt; 33% of the maximum, the data is shown in green. Else, if the last cases are &gt; 66% of the maximum, the data is shown in red. Else, grey.</p>
+<p><strong>Axes:</strong> 
+The data is shown on a <strong>normalized y-axis</strong>. This means that the actual numbers between countries can be very different and should not be compared. On the x-axis, the data is shown from the day of the 100th positive case until today.</p>
+<p><strong>Preprocessing:</strong>
+The number of new cases per day is averaged using a 7-day rolling window. Countries are included if they have at least 100000 cases and at least 1000 deaths. Countries are sorted by total number of cases.</p>
+<p><strong>Data:</strong> The data is pulled from the COVID-19 <a href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series">Data Repository</a> by Johns Hopkins CSSE</p>
+<p><strong>Disclaimer:</strong>
+I am not an expert on Covid. There might be glitches or mistakes in my data processing. Please wear a mask when necessary, apparently <a href="https://pubs.acs.org/doi/pdf/10.1021/acsnano.0c03972">they do work</a>. I hope you'll all stay healthy.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
