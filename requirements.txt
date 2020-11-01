@@ -9,3 +9,4 @@ lxml
 requests_html
 countryinfo
 altair
+pydub
