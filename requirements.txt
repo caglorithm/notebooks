@@ -8,3 +8,4 @@ scipy
 lxml
 requests_html
 countryinfo
+altair
