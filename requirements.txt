@@ -1,0 +1,12 @@
+setuptools
+neurolib
+matplotlib
+numpy
+seaborn
+pandas
+scipy
+lxml
+requests_html
+countryinfo
+altair
+pydub
